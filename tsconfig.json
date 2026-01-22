@@ -1,21 +1,24 @@
 /* Visit https://www.typescriptlang.org/tsconfig/ to learn about this file */
 {
   "compilerOptions": {
-    /* Compile configuration */
-    "lib": ["es2024", "dom"],
+    /* Basic configuration */
+    "lib": ["ES2024"],
     "module": "node18",
-    "allowImportingTsExtensions": true,
     "skipLibCheck": true,
+
+    /* Support the use of type stripping in Node */
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
     "noEmit": true,
+    "verbatimModuleSyntax": true,
 
     /* Linting */
     "strict": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
-    "noUncheckedSideEffectImports": true,
-    "verbatimModuleSyntax": true
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUncheckedSideEffectImports": true
   },
-  "include": ["./src", "./tests", "./*.ts"],
+  "include": ["./**/*.ts"],
   "exclude": ["./node_modules"]
 }

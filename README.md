@@ -20,8 +20,7 @@ v add React to the frontend, remove the backend
 https://github.com/neu-se/spring-26-react
 ```
 
-The functional content of this project is a minimal transcript service with
-tests.
+The functional content of this project is a minimal Express transcript API.
 
 ## Base configuration
 
@@ -58,6 +57,19 @@ This base project has an opinionated ESLint configuration that relies on
   our config files.)
 - Most everything except for `no-console` and `prettier` should registered as
   `error`; it's distracting in practice to have these be red squigglies
+
+### TypeScript
+
+TypeScript in the project is configured with options that support
+[type stripping](https://nodejs.org/api/typescript.html#type-stripping).
+Beyond this, on top of regular strict settings, the TypeScript configuration
+enables:
+
+- `forceConsistentCasingInFileNames`, to avoid osx/linux compatibility
+  heartbreak
+- `noFallthroughCasesInSwitch` and `noImplicitReturns`, which are linter-like
+  properties that don't seem to be supported by typed linting in ESLint
+- `noUncheckedSideEffectImports`, which avoids an unexpected behavior
 
 ### Prettier
 
