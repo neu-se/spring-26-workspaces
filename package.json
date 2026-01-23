@@ -1,7 +1,7 @@
 {
   "name": "cs4530-base",
   "version": "1.0.0",
-  "description": "CS4530 Base Project",
+  "description": "CS4530 Template",
   "type": "module",
   "scripts": {
     "check": "tsc",
