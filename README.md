@@ -16,7 +16,11 @@ v add a Vite frontend for a simple client/server setup
 https://github.com/neu-se/spring-26-vite
 |
 |
-v add React to the frontend, remove the backend
+v add React to the frontend
+https://github.com/neu-se/spring-26-fullstack
+|
+|
+v remove backend (React frontend project only)
 https://github.com/neu-se/spring-26-react
 ```
 
