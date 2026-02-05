@@ -31,14 +31,12 @@ export default defineConfig({
   webServer: [
     {
       name: "Frontend",
-      cwd: "..",
       command: "npm run dev:frontend",
       reuseExistingServer: !process.env.CI,
       url: "http://localhost:5173",
     },
     {
       name: "Server",
-      cwd: "..",
       command: "npm run dev:server",
       reuseExistingServer: !process.env.CI,
       url: "http://localhost:3000",
