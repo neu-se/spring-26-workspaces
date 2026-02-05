@@ -16,6 +16,7 @@
     "test": "npm run test --workspaces",
     "dev": "echo \"Run \\`npm run dev -w=server\\` and \\`npm run dev -w=frontend\\` separately\\n\"",
     "build": "npm run build -w=frontend",
-    "start": "npm start -w=server"
+    "start": "npm start -w=server",
+    "playwright": "npm run playwright -w=frontend"
   }
 }
