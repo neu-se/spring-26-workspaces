@@ -2,7 +2,7 @@
 
 This is a template project for CS4530, Software Engineering at Northeastern.
 
-## Vite+Express configuration
+## Vite+Express Full-stack Application
 
 This project has two parts:
 
@@ -29,11 +29,11 @@ some transformation on the code we're writing to make it browser-friendly.
 
 ### Development Mode
 
-Development mode is a little trickier to explain. When developming, we want
-our browser to be connecting to Vite's "development web server", not to
-Express, because Vite does a lot of nifty stuff to make sure that when we
-change our TypeScript code, it **reloads the web page**. That is _very_ handy
-for frontend web development.
+Development mode is a little trickier to explain. When developing, we want our
+browser to be connecting to Vite's "development web server", not to Express,
+because Vite does a lot of nifty stuff to make sure that when we change our
+TypeScript code, it **reloads the web page**. That is _very_ handy for
+frontend web development.
 
 However, this means your "frontend code" — the HTML and JS that the browser is
 supposed to run being served by the Vite development web server — is coming
