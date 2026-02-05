@@ -1,4 +1,13 @@
 import { z } from "zod";
+import {
+  zAddGradeResponse,
+  zAddStudentResponse,
+  zError,
+  zGetTranscriptResponse,
+  type AddGradeResponse,
+  type AddStudentResponse,
+  type GetTranscriptResponse,
+} from "@cs4530-workspaces/shared";
 
 export class ServiceError extends Error {
   constructor(message: string) {
@@ -6,9 +15,6 @@ export class ServiceError extends Error {
   }
 }
 
-const zError = z.object({ error: z.string() });
-
-const zAddStudentResponse = z.object({ studentID: z.int() });
 /**
  * Validate inputs and call the `addStudent` api
  *
@@ -20,7 +26,7 @@ const zAddStudentResponse = z.object({ studentID: z.int() });
 export async function addStudent(
   password: string,
   studentName: string,
-): Promise<z.infer<typeof zAddStudentResponse>> {
+): Promise<AddStudentResponse> {
   if (studentName === "") throw new ServiceError("Student name must be non-empty");
 
   const response = await fetch("/api/addStudent", {
@@ -36,7 +42,6 @@ export async function addStudent(
   return data;
 }
 
-const zAddGradeResponse = z.object({ success: z.literal(true) });
 /**
  * Validate inputs and call the `addGrade` api
  *
@@ -52,7 +57,7 @@ export async function addGrade(
   studentIDStr: string,
   courseName: string,
   courseGradeStr: string,
-): Promise<z.infer<typeof zAddGradeResponse>> {
+): Promise<AddGradeResponse> {
   const studentID = parseInt(studentIDStr);
   if (isNaN(studentID) || `${studentID}` !== studentIDStr || studentID < 0) {
     throw new ServiceError("Student ID is invalid");
@@ -87,17 +92,6 @@ export async function addGrade(
   return data;
 }
 
-const zGetTranscriptResponse = z.union([
-  z.object({ success: z.literal(false) }),
-  z.object({
-    success: z.literal(true),
-    transcript: z.object({
-      student: z.object({ studentID: z.int(), studentName: z.string() }),
-      grades: z.array(z.object({ course: z.string(), grade: z.number() })),
-    }),
-  }),
-]);
-
 /**
  * Validate inputs and call the `getTranscript` API
  *
@@ -109,7 +103,7 @@ const zGetTranscriptResponse = z.union([
 export async function getTranscript(
   password: string,
   studentIDStr: string,
-): Promise<z.infer<typeof zGetTranscriptResponse>> {
+): Promise<GetTranscriptResponse> {
   const studentID = parseInt(studentIDStr);
   if (isNaN(studentID) || `${studentID}` !== studentIDStr || studentID < 0) {
     throw new ServiceError("Student ID is invalid");

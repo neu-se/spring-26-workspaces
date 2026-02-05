@@ -18,7 +18,5 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUncheckedSideEffectImports": true
-  },
-  "include": ["./**/*.ts"],
-  "exclude": ["./node_modules", "./client", "./frontend"]
+  }
 }
