@@ -4,7 +4,7 @@ import tseslint from "typescript-eslint";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import eslintPluginImport from "eslint-plugin-import";
 import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
+import { reactRefresh } from "eslint-plugin-react-refresh";
 
 /**
  * We want @typescript-eslint/naming-convention to enforce different naming
@@ -58,6 +58,7 @@ export default defineConfig([
     "**/.stryker-tmp/", // stryker mutation reports
     "**/coverage", // istanbul coverage reports
     "**/playwright-report/", // playwright test reports
+    "eslint.config.mjs", // eslint-plugin-import has trouble with this config file
   ]),
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
@@ -92,7 +93,6 @@ export default defineConfig([
       "import/no-named-as-default-member": "off",
       "no-console": "warn",
       "no-param-reassign": "error",
-      "no-plusplus": "error",
       "no-throw-literal": "error",
       "no-unused-vars": ["error", { args: "none", caughtErrors: "none" }],
     },
