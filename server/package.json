@@ -12,6 +12,7 @@
     "start": "MODE=production node ./src/server.ts"
   },
   "devDependencies": {
+    "@cs4530-workspaces/shared": "^1.0.0",
     "@types/express": "^5.0.6",
     "@types/supertest": "^6.0.3",
     "@vitest/coverage-v8": "^4.0.18",
